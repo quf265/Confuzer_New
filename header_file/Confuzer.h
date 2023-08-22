@@ -57,6 +57,7 @@ enum arg_type
     ARG_SOCKETINFO,
 };
 
+//실행할 때 사용하는 시스템콜 정보 구조체
 struct SyscallArgumentInfo
 {
     unsigned int nr;
@@ -83,8 +84,13 @@ struct SyscallArgumentInfo
 
 };
 
-struct ArgumentInfo{
+//호상이가 만들기
+struct SyscallJsonInfo{
     string name;
+    
+    int parameter_count;
+    
+
 };
 
 #endif
