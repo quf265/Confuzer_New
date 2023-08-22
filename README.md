@@ -8,6 +8,8 @@ source_code -> mapping      민정 ( 출력된 결과를 모아서 csv파일로 
 structInfo : 스트럭트 구조체에 관련된 코드들 모음
 flagInfo : flag와 관련된 코드들 모음
 
+빌드 방법은 source_code 안에서 make하면 빌드됨 main이 최종 실행파일
+
 
 header_file안에 있는 헤더는 자기 자신에 해당하는 것만 수정
 Confuzer.h는 공통헤더로 수정시 다른 사람에게 미치는 영향이 없도록 할 것( 있으면 말해줘서 같이 문제를 해결해야함 )
