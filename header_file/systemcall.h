@@ -1,4 +1,6 @@
 #include "Confuzer.h"
+#include "flagInfo.h"
+#include "structInfo.h"
 
 class Systemcall
 {
