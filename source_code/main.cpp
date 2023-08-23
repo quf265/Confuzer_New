@@ -5,6 +5,7 @@
 #include "./../header_file/systemcall.h"
 #include "./../header_file/flagInfo.h"
 #include "./../header_file/structInfo.h"
+#include "./../header_file/initialize.h"
 
 int main(void)
 {
@@ -15,10 +16,12 @@ int main(void)
     Mapping my_mapping;
     FlagInfo my_flagInfo;
     StructInfo my_structInfo;
+    Initialize my_initialize;
     my_print.first_function();
     my_systemcall.first_function();
     my_execute.first_function();
     my_mapping.first_function();
     my_flagInfo.first_function();
     my_structInfo.first_function();
+    my_initialize.first_function();
 }

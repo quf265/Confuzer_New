@@ -2,14 +2,17 @@
 header_file_path = ./../header_file/
 systemcall_info_file_path = ./../systemcall_info/
 
-main : flagInfo.o structInfo.o systemcall.o execute.o print.o mapping.o  main.o
-		g++ systemcall.o print.o execute.o mapping.o flagInfo.o structInfo.o main.o -o main
+main : flagInfo.o structInfo.o initialize.o systemcall.o execute.o print.o mapping.o  main.o
+		g++ systemcall.o print.o initialize.o execute.o mapping.o flagInfo.o structInfo.o main.o -o main
 
 flagInfo.o : $(header_file_path)Confuzer.h $(header_file_path)flagInfo.h $(systemcall_info_file_path)flagInfo.cpp
 		  g++ -c $(systemcall_info_file_path)flagInfo.cpp
 
 structInfo.o : $(header_file_path)Confuzer.h $(header_file_path)structInfo.h $(systemcall_info_file_path)structInfo.cpp
 		  g++ -c $(systemcall_info_file_path)structInfo.cpp
+
+initialize.o : $(header_file_path)Confuzer.h $(header_file_path)flagInfo.h $(header_file_path)structInfo.h $(header_file_path)initialize.h initialize.cpp
+		  g++ -c initialize.cpp
 
 systemcall.o : $(header_file_path)Confuzer.h $(header_file_path)flagInfo.h $(header_file_path)structInfo.h $(header_file_path)systemcall.h systemcall.cpp
 			   g++ -c systemcall.cpp
