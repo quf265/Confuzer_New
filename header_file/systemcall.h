@@ -12,8 +12,8 @@ public:
     Systemcall(/* args */);
     ~Systemcall();
     void first_function();
-    void setSyscallStruct(struct struct);
-    struct SyscallArgumentInfo getSyscallStruct();
+    void setSyscallStruct();
+    getSyscallStruct();
 };
 
 

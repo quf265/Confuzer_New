@@ -13,10 +13,9 @@ void Systemcall::first_function()
     cout<<"hello systemcall class"<<endl;
 }
 
-void Systemcall::setSyscallStruct(struct struct)
+void Systemcall::setSyscallStruct()
 {
-    syscallargsinfo.name = struct.name;
-    syscallargsinfo.nr = struct.syscallnum;
+    syscallargsinfo.nr = syscalljsoninfo.syscallnum;
 }
 
 Systemcall::getSyscallStruct()
