@@ -26,7 +26,8 @@ public:
     Print(/* args */);
     ~Print();
     void first_function();
-    void make_log_buffer(SyscallArgumentInfo *);
+    void make_log_buffer(SyscallArgumentInfo *, int);
     void print_result(SyscallArgumentInfo *);
+    char *render_arg(SyscallArgumentInfo *, char *, unsigned int );
 };
 

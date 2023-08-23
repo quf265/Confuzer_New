@@ -85,19 +85,26 @@ struct SyscallArgumentInfo
     string syscall_name;
 
     unsigned int nr;
+
+    unsigned long argument[6];
+    /*
     unsigned long a1;
     unsigned long a2;
     unsigned long a3;
     unsigned long a4;
     unsigned long a5;
     unsigned long a6;
+    */
 
+    enum arg_type argument_type[6];
+    /*
     enum arg_type a1Type;
     enum arg_type a2Type;
     enum arg_type a3Type;
     enum arg_type a4Type;
     enum arg_type a5Type;
     enum arg_type a6Type;
+    */
     unsigned long retval;
 
     string a1_string;
@@ -113,7 +120,25 @@ struct SyscallArgumentInfo
 
     string log_buffer;
 
+    string argument_name[6];
+    /*
+    string a1_name;
+    string a2_name;
+    string a3_name;
+    string a4_name;
+    string a5_name;
+    string a6_name;
+    */
+
+    int parameter_count;
+
     int failCount;
+};
+
+struct SyscallArgumentInfoCollector
+{
+    int execute_syscall_count;
+    SyscallArgumentInfo syscall_argument_info[6];
 };
 
 //호상이가 만들기
