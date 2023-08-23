@@ -82,6 +82,8 @@ enum arg_type
 //실행할 때 사용하는 시스템콜 정보 구조체
 struct SyscallArgumentInfo
 {
+    string syscall_name;
+
     unsigned int nr;
     unsigned long a1;
     unsigned long a2;
@@ -102,8 +104,9 @@ struct SyscallArgumentInfo
     int errorNumber;
     int kindOfContainer; // 0: 도커, 1: gVisor, 2: kata
 
-    int failCount;
+    string log_buffer;
 
+    int failCount;
 };
 
 //호상이가 만들기
