@@ -5,11 +5,16 @@
 class Systemcall
 {
 private:
+    struct SyscallJsonInfo syscalljsoninfo;
+    struct SyscallArgumentInfo syscallargsinfo;
     /* data */
 public:
     Systemcall(/* args */);
     ~Systemcall();
     void first_function();
+    void setSyscallStruct(struct struct);
+    struct SyscallArgumentInfo getSyscallStruct();
 };
+
 
 

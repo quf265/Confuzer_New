@@ -123,8 +123,16 @@ struct SyscallJsonInfo{
     string a5Type;
     string a6Type;
 
+    string flag1[100];
+    string flag2[100];
+    string flag3[100];
+    string flag4[100];
+    string flag5[100];
+    string flag6[100];
+
     int parameter_count;
 };
 
 #endif
+
 
