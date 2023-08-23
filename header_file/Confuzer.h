@@ -98,6 +98,13 @@ struct SyscallArgumentInfo
     enum arg_type a6Type;
     unsigned long retval;
 
+    string a1_string;
+    string a2_string;
+    string a3_string;
+    string a4_string;
+    string a5_string;
+    string a6_string;
+
     int testSuccess;
     int errorNumber;
     int kindOfContainer; // 0: 도커, 1: gVisor, 2: kata
@@ -109,26 +116,9 @@ struct SyscallArgumentInfo
 //호상이가 만들기
 struct SyscallJsonInfo{
     string name;
-    string a1;
-    string a2;
-    string a3;
-    string a4;
-    string a5;
-    string a6;
-    
-    string a1Type;
-    string a2Type;
-    string a3Type;
-    string a4Type;
-    string a5Type;
-    string a6Type;
-
-    string flag1[100];
-    string flag2[100];
-    string flag3[100];
-    string flag4[100];
-    string flag5[100];
-    string flag6[100];
+    int syscallnum;
+    string args[6];
+    string argsType[6];
 
     int parameter_count;
 };
