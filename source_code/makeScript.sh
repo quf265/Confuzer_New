@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cp ./../execute_file/* .
+mv ./../execute_file/* .
 make
 mv *.o ./../execute_file/
 
