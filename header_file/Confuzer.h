@@ -154,5 +154,12 @@ struct SyscallJsonInfo{
     int parameter_count;
 };
 
+//Json에서 받은 정보 전부 저장하는 곳
+struct SyscallJsonInfoCollector{
+
+    int syscall_count;
+    SyscallJsonInfo * syscall_json_info;
+};
+
 #endif
 
