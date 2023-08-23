@@ -28,8 +28,30 @@
 #include <signal.h>
 #include <sys/xattr.h>
 #include <sys/socket.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+#include <sys/sysinfo.h>
+#include <sys/uio.h>
+#include <sys/times.h>
+#include <sys/vfs.h> 
+#include <sys/timex.h>
+#include <sys/epoll.h>
+#include <linux/module.h>
+#include <linux/nfsd/syscall.h>
+#include <linux/aio_abi.h>
+#include <linux/kexec.h>
+#include <linux/futex.h>
+#include <linux/hw_breakpoint.h>
+#include <linux/perf_event.h>
+#include <linux/sched.h>
+#include <liburing.h>
+#include <sched.h>
 #include <arpa/inet.h>
 #include <poll.h>
+#include <utime.h>
+#include <ustat.h>
+#include <mqueue.h>
+#include <time.h>
 
 
 using namespace std;
