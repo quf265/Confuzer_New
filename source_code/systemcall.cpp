@@ -1,24 +1,15 @@
 #include "./../header_file/systemcall.h"
 
-Systemcall::Systemcall(/* args */)
-{
-}
-
-Systemcall::~Systemcall()
-{
-}
-
-void Systemcall::first_function()
-{
-    cout<<"hello systemcall class"<<endl;
-}
-
 void Systemcall::setSyscallStruct()
 {
     syscallargsinfo.nr = syscalljsoninfo.syscallnum;
+    for (int i = 0; i < 6; i++)
+    {
+        syscallargsinfo.arg[i] = (long)(syscalljsoninfo.args[i].c_str());
+    }
 }
 
-Systemcall::getSyscallStruct()
+Systemcall::struct SyscallArgumentInfo getSyscallStruct()
 {
     return syscallargsinfo;
 }
