@@ -109,10 +109,22 @@ struct SyscallArgumentInfo
 //호상이가 만들기
 struct SyscallJsonInfo{
     string name;
+    string a1;
+    string a2;
+    string a3;
+    string a4;
+    string a5;
+    string a6;
     
-    int parameter_count;
-    
+    string a1Type;
+    string a2Type;
+    string a3Type;
+    string a4Type;
+    string a5Type;
+    string a6Type;
 
+    int parameter_count;
 };
 
 #endif
+
