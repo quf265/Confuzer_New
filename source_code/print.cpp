@@ -64,10 +64,12 @@ char *Print::render_arg(SyscallArgumentInfo * syscall_argument_info, char *sptr,
 
     sptr += sprintf(sptr, "%s=", name);
 
-    //sptr = decode_argtype(rec, sptr, reg, type, argnum);
+    //sptr = decode_argtype(syscall_argument_info, sptr, reg, type, argnum);
 
     return sptr;
 }
+
+
 
 void Print::print_result(SyscallArgumentInfo *syscall_argument_info)
 {

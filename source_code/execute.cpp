@@ -21,7 +21,7 @@ void Execute::first_function()
     cout<<"hello execute class"<<endl;
 }
 
-int Execute::execute_syscall(SyscallArgumentInfo * syscall_argument_info)
+int Execute::execute_syscall(SyscallArgumentInfoCollector * syscall_argument_info_collector)
 {
     int retval;
     int trace_marker_fd;
@@ -29,13 +29,45 @@ int Execute::execute_syscall(SyscallArgumentInfo * syscall_argument_info)
     char cmd[10000] = {0};
     string trace_marker_start_message;
     string trace_marker_end_message;
+    SyscallArgumentInfo * syscall_argument_info = NULL;
+    SyscallArgumentInfo * next_syscall_argument_info = NULL;
+    int presyscall_return_val = 0;
+    int presyscall_pos = 0;
+    //presyscall
+    for(int i = 0 ; i < syscall_argument_info_collector->execute_syscall_count ; ++i)
+    {
+        syscall_argument_info = &syscall_argument_info_collector->syscall_argument_info[i];
+        if( i != syscall_argument_info_collector->execute_syscall_count - 1)
+        {
+            next_syscall_argument_info = &syscall_argument_info_collector->syscall_argument_info[i+1];
+            for(int j = 0 ; j < 6 ; ++j)
+            {
+                if(next_syscall_argument_info->argument[j] == -1)   //선행되는 시스템콜은 한개만 있다고 생각하고 진행
+                {
+                    presyscall_pos = j;
+                    break;
+                }   
+            }
+            presyscall_return_val = syscall(syscall_argument_info->nr, syscall_argument_info->argument[0], syscall_argument_info->argument[1], syscall_argument_info->argument[2], syscall_argument_info->argument[3], syscall_argument_info->argument[4], syscall_argument_info->argument[5]);
+            next_syscall_argument_info->argument[presyscall_pos] = presyscall_return_val;
+        }
+    }
+
+    if(syscall_argument_info == NULL)
+    {
+        printf("systemcall info is null");
+        return -1;
+    }
+
+
+
     if (container_type == 0 || container_type == 1)
     {
         tracing_on(1);
         trace_marker_fd = open(kata_fsync_file_path.c_str(), O_WRONLY);
         if (trace_marker_fd == -1)
         {
-            printf("cant not open trace marker fd\n");
+            printf("can not open trace marker fd\n");
             return -1;
         }
         trace_marker_start_message = syscall_argument_info->log_buffer;

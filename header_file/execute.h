@@ -30,7 +30,7 @@ public:
     Execute(/* args */);
     ~Execute();
     void first_function();
-    int execute_syscall(SyscallArgumentInfo * syscall_argument_info);
+    int execute_syscall(SyscallArgumentInfoCollector * syscall_argument_info);
 
 
 
