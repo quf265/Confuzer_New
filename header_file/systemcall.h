@@ -9,6 +9,9 @@ private:
     struct SyscallArgumentInfo syscallargsinfo;
     /* data */
 public:
+    Systemcall(/* args */);
+    ~Systemcall();
+    void first_function();
     void setSyscallStruct();
     struct SyscallArgumentInfo getSyscallStruct();
 };

@@ -7,16 +7,16 @@
 //#define _GNU_SOURCE
 
 //cpp - haeder
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 
 
 //c - header
-#include<string>
-#include<cstring>
-#include<cstdio>
+#include <string>
+#include <cstring>
+#include <cstdio>
 #include <fcntl.h>
 
 //linux header
@@ -107,12 +107,7 @@ struct SyscallArgumentInfo
     */
     unsigned long retval;
 
-    string a1_string;
-    string a2_string;
-    string a3_string;
-    string a4_string;
-    string a5_string;
-    string a6_string;
+    string argument_log[6];
 
     int testSuccess;
     int errorNumber;
@@ -145,12 +140,13 @@ struct SyscallArgumentInfoCollector
 struct SyscallJsonInfo{
     string name;
     int syscallnum;
-    string args[6];
-    string argsType[6];
+    string argument[6];
+    string argument_type[6];
 
     int parameter_count;
 };
 
 #endif
+
 
 
