@@ -60,7 +60,7 @@ int Execute::execute_syscall(SyscallArgumentInfo * syscall_argument_info)
         fsync(kata_fd);
         fsync(kata_fd);
     }
-    retval = syscall(syscall_argument_info->nr, syscall_argument_info->a1, syscall_argument_info->a2, syscall_argument_info->a3, syscall_argument_info->a4, syscall_argument_info->a5, syscall_argument_info->a6);
+    retval = syscall(syscall_argument_info->nr, syscall_argument_info->argument[0], syscall_argument_info->argument[1], syscall_argument_info->argument[2], syscall_argument_info->argument[3], syscall_argument_info->argument[4], syscall_argument_info->argument[5]);
     if (container_type == 0 || container_type == 1)
     {
         write(trace_marker_fd, trace_marker_end_message.c_str(), trace_marker_end_message.length());
@@ -87,6 +87,8 @@ int Execute::execute_syscall(SyscallArgumentInfo * syscall_argument_info)
     }
     syscall_argument_info->retval = retval;
     syscall_argument_info->errorNumber = errno;
+
+    return 0;
 }
 
 void Execute::tracing_on(int on_off)
