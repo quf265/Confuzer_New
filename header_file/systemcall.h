@@ -13,7 +13,6 @@ public:
     ~Systemcall();
     void first_function();
     void setSyscallStruct();
-    struct SyscallArgumentInfo getSyscallStruct();
 };
 
 

@@ -142,8 +142,7 @@ struct SyscallJsonInfo{
     int syscallnum;
     string argument[6];
     string argument_type[6];
-
-    int parameter_count;
+    
 };
 
 #endif
