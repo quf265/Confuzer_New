@@ -10,8 +10,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-
-
+#include <map>
 
 //c - header
 #include<string>
@@ -53,6 +52,33 @@
 #include <mqueue.h>
 #include <time.h>
 
+// options값을 호출하기 위해 추가한 header파일
+#include <asm/prctl.h>
+#include <linux/bpf.h>
+//#include <linux/close_range.h>
+#include <sys/eventfd.h>
+#include <sys/fanotify.h>
+#include <sys/random.h>
+#include <sys/inotify.h>
+//#include <linux/ioprio.h>
+#include <sys/syscall.h>
+#include <sys/shm.h>
+#include <linux/kcmp.h>
+#include <linux/reboot.h>
+#include <sys/mman.h>
+#include <linux/membarrier.h>
+#include <linux/memfd.h>
+//#include <sys/mount.h>
+//#include <numaif.h>
+#include <sys/prctl.h>
+#include <sys/quota.h>
+#include <linux/dqblk_xfs.h>
+#include <linux/seccomp.h>
+#include <sys/signalfd.h>
+#include <sys/swap.h>
+#include <sys/timerfd.h>
+
+#include <sys/klog.h>
 
 using namespace std;
 //구조체
