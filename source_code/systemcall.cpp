@@ -44,36 +44,22 @@ void Systemcall::setSyscallStruct()
         syscallargsinfo.argument_name[i] = syscalljsoninfo.argument_datatype[i] + " " + syscalljsoninfo.argument[i];
         syscallargsinfo.argument[i] = (long)(syscalljsoninfo.argument[i].c_str());
 
-        if(syscalljsoninfo.argument[i].find("fd") != string::npos)
+        if(syscalljsoninfo.argument_datatype[i].find("char") != string::npos)
         {
-            syscallargsinfo.argument_type[i] = ARG_FD;
-        }
-        else if(syscalljsoninfo.argument_type[i].find("ARG_LEN") != string::npos)
-        {
-            syscallargsinfo.argument_type[i] = ARG_LEN;
+            syscallargsinfo.argument_type[i] = ARG_PATHNAME;
         }
         else if(syscalljsoninfo.argument_type[i].find("*") != string::npos)
         {
             syscallargsinfo.argument_type[i] = ARG_ADDRESS;
         }
-        else if(syscalljsoninfo.argument[i].find("mode") != string::npos)
+        else if(syscalljsoninfo.argument[i].find("fd") != string::npos)
         {
-            syscallargsinfo.argument_type[i] = ARG_MODE_T;
-            syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
+            syscallargsinfo.argument_type[i] = ARG_FD;
         }
-        else if(syscalljsoninfo.argument_type[i].find("ARG_OP") != string::npos)
+        else if(!syscalljsoninfo.options[i].empty())
         {
             syscallargsinfo.argument_type[i] = ARG_OP;
             syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
-        }
-        else if(syscalljsoninfo.argument_type[i].find("ARG_LIST") != string::npos)
-        {
-            syscallargsinfo.argument_type[i] = ARG_LIST;
-            syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
-        }
-        else if(syscalljsoninfo.argument[i].find("pathname") != string::npos)
-        {
-            syscallargsinfo.argument_type[i] = ARG_PATHNAME;
         }
         else
         {
