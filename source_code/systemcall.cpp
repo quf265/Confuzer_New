@@ -70,12 +70,15 @@ void Systemcall::setSyscallStruct()
 
 void Systemcall::setJsonStruct()
 {
+    //용원이형이 주는 데이터
     string name = "0";
     int syscallnum = 0;
     string argument[6] = {"0"};// argument 자료형
     string argument_datatype[6] = {"0"}; // argument 자료형
     string argument_type[6] = {"0"}; // argument 타입 받을 곳
     string options[6] = {"0"};
+
+    //데이터 삽입
     syscalljsoninfo.name = name;
     syscalljsoninfo.syscallnum = syscallnum;
     for(int i = 0; i < 6; i++)
