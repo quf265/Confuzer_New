@@ -75,7 +75,6 @@ void Systemcall::setJsonStruct()
     int syscallnum = 0; // 시스템콜 넘버
     string argument[6] = {"0"};// argument 자료형
     string argument_datatype[6] = {"0"}; // argument 자료형
-    string argument_type[6] = {"0"}; // argument 타입 받을 곳
     string options[6] = {"0"}; // flag 받을 곳
 
     //데이터 삽입
@@ -85,7 +84,6 @@ void Systemcall::setJsonStruct()
     {
         syscalljsoninfo.argument[i] = argument[i];
         syscalljsoninfo.argument_datatype[i] = argument_datatype[i];
-        syscalljsoninfo.argument_type[i] = argument_type[i];
         syscalljsoninfo.options[i] = options[i];
     }
 }
