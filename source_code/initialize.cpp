@@ -1,4 +1,5 @@
 #include "./../header_file/initialize.h"
+<<<<<<< HEAD
 #include <iostream>
 #include <string>
 // #include <boost/asio.hpp>
@@ -29,6 +30,8 @@
 
 // 	return 0;
 // }
+=======
+>>>>>>> c5191b73e268777e25fd5d48948e6851064249f8
 
 Initialize::Initialize(/* args */)
 {
