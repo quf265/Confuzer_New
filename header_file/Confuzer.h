@@ -7,18 +7,10 @@
 //#define _GNU_SOURCE
 
 //cpp - haeder
-<<<<<<< HEAD
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-
-=======
 #include<iostream>
 #include<vector>
 #include<algorithm>
 #include <map>
->>>>>>> af5f5d5703d6eabcc10c016bd3e3860c33d3265c
 
 //c - header
 #include <string>
