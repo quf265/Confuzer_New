@@ -37,6 +37,7 @@ void Systemcall::first_function()
 
 void Systemcall::setSyscallStruct()
 {
+    int syscall_count = 0;
     syscallargsinfo.syscall_name = syscalljsoninfo.name;
     syscallargsinfo.nr = syscalljsoninfo.syscallnum;
     for (int i = 0; i < 6; i++)
@@ -66,6 +67,7 @@ void Systemcall::setSyscallStruct()
             syscallargsinfo.argument_type[i] = ARG_UNDEFINED;
         }
     }
+    SyscallArgumentInfoCollector.syscall_argument_info[syscall_count++] = syscallargsinfo;
 }
 
 void Systemcall::setJsonStruct()
