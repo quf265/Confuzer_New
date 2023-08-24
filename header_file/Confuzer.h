@@ -166,15 +166,14 @@ struct SyscallArgumentInfoCollector
 struct SyscallJsonInfo{
     string name;
     int syscallnum;
-    string argument[6];
-    string argument_datatype[6];
+    string argument[6];// argument 자료형
+    string argument_datatype[6]; // argument 자료형
     string argument_type[6]; // argument 타입 받을 곳
     string options[6];
 };
 
 //Json에서 받은 정보 전부 저장하는 곳
 struct SyscallJsonInfoCollector{
-
     int syscall_count;
     SyscallJsonInfo * syscall_json_info;
 };
