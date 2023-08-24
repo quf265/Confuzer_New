@@ -41,83 +41,84 @@ void Systemcall::setSyscallStruct()
     syscallargsinfo.nr = syscalljsoninfo.syscallnum;
     for (int i = 0; i < 6; i++)
     {
+        syscallargsinfo.argument_name[i] = syscalljsoninfo.argument_datatype[i] + " " + syscalljsoninfo.argument[i];
         syscallargsinfo.argument[i] = (long)(syscalljsoninfo.argument[i].c_str());
 
-        if(syscalljsoninfo.argument_type[i] == "ARG_UNDEFINED")
-        {
-            syscallargsinfo.argument_type[i] = ARG_UNDEFINED;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_FD")
+        if(syscalljsoninfo.argument[i].find("fd") != string::npos)
         {
             syscallargsinfo.argument_type[i] = ARG_FD;
         }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_LEN")
+        else if(syscalljsoninfo.argument_type[i].find("ARG_LEN") != string::npos)
         {
             syscallargsinfo.argument_type[i] = ARG_LEN;
         }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_ADDRESS")
+        else if(syscalljsoninfo.argument_type[i].find("*") != string::npos)
         {
             syscallargsinfo.argument_type[i] = ARG_ADDRESS;
         }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_MODE_T")
+        else if(syscalljsoninfo.argument[i].find("mode") != string::npos)
         {
             syscallargsinfo.argument_type[i] = ARG_MODE_T;
             syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
         }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_NON_NULL_ADDRESS")
-        {
-            syscallargsinfo.argument_type[i] = ARG_NON_NULL_ADDRESS;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_PID")
-        {
-            syscallargsinfo.argument_type[i] = ARG_PID;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_RANGE")
-        {
-            syscallargsinfo.argument_type[i] = ARG_RANGE;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_OP")
+        else if(syscalljsoninfo.argument_type[i].find("ARG_OP") != string::npos)
         {
             syscallargsinfo.argument_type[i] = ARG_OP;
             syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
         }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_LIST")
+        else if(syscalljsoninfo.argument_type[i].find("ARG_LIST") != string::npos)
         {
             syscallargsinfo.argument_type[i] = ARG_LIST;
             syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
         }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_CPU")
-        {
-            syscallargsinfo.argument_type[i] = ARG_CPU;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_PATHNAME")
+        else if(syscalljsoninfo.argument[i].find("pathname") != string::npos)
         {
             syscallargsinfo.argument_type[i] = ARG_PATHNAME;
         }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_IOVEC")
+        else
         {
-            syscallargsinfo.argument_type[i] = ARG_IOVEC;
+            syscallargsinfo.argument_type[i] = ARG_UNDEFINED;
         }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_IOVECLEN")
-        {
-            syscallargsinfo.argument_type[i] = ARG_IOVECLEN;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_SOCKADDR")
-        {
-            syscallargsinfo.argument_type[i] = ARG_SOCKADDR;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_SOCKADDRLEN")
-        {
-            syscallargsinfo.argument_type[i] = ARG_SOCKADDRLEN;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_MMAP")
-        {
-            syscallargsinfo.argument_type[i] = ARG_MMAP;
-        }
-        else if(syscalljsoninfo.argument_type[i] == "ARG_SOCKETINFO")
-        {
-            syscallargsinfo.argument_type[i] = ARG_SOCKETINFO;
-        }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_NON_NULL_ADDRESS") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_NON_NULL_ADDRESS;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_PID") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_PID;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_RANGE") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_RANGE;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_CPU") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_CPU;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_IOVEC") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_IOVEC;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_IOVECLEN") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_IOVECLEN;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_SOCKADDR") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_SOCKADDR;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_SOCKADDRLEN") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_SOCKADDRLEN;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_MMAP") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_MMAP;
+        // }
+        // else if(syscalljsoninfo.argument_type[i].find("ARG_SOCKETINFO") != string::npos)
+        // {
+        //     syscallargsinfo.argument_type[i] = ARG_SOCKETINFO;
+        // }
     }
 }
 
