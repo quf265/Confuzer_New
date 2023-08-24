@@ -43,11 +43,6 @@ void Systemcall::setSyscallStruct()
         syscallargsinfo.argument[i] = (long)(syscalljsoninfo.argument[i].c_str());
         syscallargsinfo.argument_name[i] = syscalljsoninfo.argument[i];
 
-        if(syscalljsoninfo.argument[i] != "0")
-        {
-            syscallargsinfo.parameter_count++;
-        }
-
         if(syscalljsoninfo.argument_type[i] == "ARG_UNDEFINED")
         {
             syscallargsinfo.argument_type[i] = ARG_UNDEFINED;
