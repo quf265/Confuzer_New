@@ -1,5 +1,7 @@
 #include "./../header_file/systemcall.h"
 
+using namespace std;
+
 Systemcall::Systemcall(/* args */)
 {
     // syscalljsoninfo.name = "0";
@@ -35,13 +37,11 @@ void Systemcall::first_function()
 
 void Systemcall::setSyscallStruct()
 {
-
     syscallargsinfo.syscall_name = syscalljsoninfo.name;
     syscallargsinfo.nr = syscalljsoninfo.syscallnum;
     for (int i = 0; i < 6; i++)
     {
         syscallargsinfo.argument[i] = (long)(syscalljsoninfo.argument[i].c_str());
-        syscallargsinfo.argument_name[i] = syscalljsoninfo.argument[i];
 
         if(syscalljsoninfo.argument_type[i] == "ARG_UNDEFINED")
         {
@@ -62,6 +62,7 @@ void Systemcall::setSyscallStruct()
         else if(syscalljsoninfo.argument_type[i] == "ARG_MODE_T")
         {
             syscallargsinfo.argument_type[i] = ARG_MODE_T;
+            syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
         }
         else if(syscalljsoninfo.argument_type[i] == "ARG_NON_NULL_ADDRESS")
         {
@@ -78,10 +79,12 @@ void Systemcall::setSyscallStruct()
         else if(syscalljsoninfo.argument_type[i] == "ARG_OP")
         {
             syscallargsinfo.argument_type[i] = ARG_OP;
+            syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
         }
         else if(syscalljsoninfo.argument_type[i] == "ARG_LIST")
         {
             syscallargsinfo.argument_type[i] = ARG_LIST;
+            syscallargsinfo.argument_log[i].push_back(syscalljsoninfo.argument[i]);
         }
         else if(syscalljsoninfo.argument_type[i] == "ARG_CPU")
         {
@@ -116,4 +119,9 @@ void Systemcall::setSyscallStruct()
             syscallargsinfo.argument_type[i] = ARG_SOCKETINFO;
         }
     }
+}
+
+void Systemcall::setJsonStruct()
+{
+
 }
