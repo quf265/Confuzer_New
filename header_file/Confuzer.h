@@ -7,15 +7,23 @@
 //#define _GNU_SOURCE
 
 //cpp - haeder
+<<<<<<< HEAD
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+
+=======
 #include<iostream>
 #include<vector>
 #include<algorithm>
 #include <map>
+>>>>>>> af5f5d5703d6eabcc10c016bd3e3860c33d3265c
 
 //c - header
-#include<string>
-#include<cstring>
-#include<cstdio>
+#include <string>
+#include <cstring>
+#include <cstdio>
 #include <fcntl.h>
 
 //linux header
@@ -133,6 +141,8 @@ struct SyscallArgumentInfo
     */
     unsigned long retval;
 
+    string argument_log[6];
+
     int testSuccess;
     int errorNumber;
     int kindOfContainer; // 0: 도커, 1: gVisor, 2: kata
@@ -163,21 +173,10 @@ struct SyscallArgumentInfoCollector
 //호상이가 만들기
 struct SyscallJsonInfo{
     string name;
-    string a1;
-    string a2;
-    string a3;
-    string a4;
-    string a5;
-    string a6;
+    int syscallnum;
+    string argument[6];
+    string argument_type[6];
     
-    string a1Type;
-    string a2Type;
-    string a3Type;
-    string a4Type;
-    string a5Type;
-    string a6Type;
-
-    int parameter_count;
 };
 
 //Json에서 받은 정보 전부 저장하는 곳
@@ -188,4 +187,6 @@ struct SyscallJsonInfoCollector{
 };
 
 #endif
+
+
 
