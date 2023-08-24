@@ -7,6 +7,7 @@ class Systemcall
 private:
     struct SyscallJsonInfo syscalljsoninfo;
     struct SyscallArgumentInfo syscallargsinfo;
+    struct SyscallArgumentInfoCollector syscallargsinfo_collect;
     /* data */
 public:
     Systemcall(/* args */);

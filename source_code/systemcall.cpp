@@ -67,7 +67,7 @@ void Systemcall::setSyscallStruct()
             syscallargsinfo.argument_type[i] = ARG_UNDEFINED;
         }
     }
-    SyscallArgumentInfoCollector.syscall_argument_info[syscall_count++] = syscallargsinfo;
+    syscallargsinfo_collect.syscall_argument_info[syscall_count++] = syscallargsinfo;
 }
 
 void Systemcall::setJsonStruct()
